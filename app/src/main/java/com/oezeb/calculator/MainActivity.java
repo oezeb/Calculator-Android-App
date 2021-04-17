@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Stack;
 
@@ -47,15 +49,16 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
                 try {
-                    Double dVal = Calculator.eval(s.toString());
-                    Integer iVal = dVal.intValue();
-                    out.setText((dVal-iVal == 0.0) ? iVal.toString() : dVal.toString());
+                    BigDecimal dVal = Calculator.eval(s.toString());
+                    BigDecimal iVal = BigDecimal.valueOf(dVal.intValue());
+                    out.setText((dVal.subtract(iVal) == BigDecimal.ZERO) ? iVal.toString() : dVal.toString());
                 }
                 catch (Exception ex) {
                     out.setText("Error");
                 }
             }
         });
+
 
         //get data from buttons
         findViewById(R.id.b0).setOnClickListener(new View.OnClickListener() {
@@ -189,13 +192,13 @@ public class MainActivity extends AppCompatActivity {
 
 
 class Calculator {
-    static Double eval(String str) {
+    static BigDecimal eval(String str) {
         Calculator cal = new Calculator();
-        return cal.evalPolish(cal.getPolish(new Stream(cal.mulsym(str))));
+        return cal.evalPolish(cal.getPolish(new Stream(cal.mulSym(str))));
     }
 
-    Double evalPolish(ArrayList<Data> tokens) {
-        Stack<Double> stk = new Stack<>();
+    BigDecimal evalPolish(ArrayList<Data> tokens) {
+        Stack<BigDecimal> stk = new Stack<>();
         for (Data data: tokens) {
             if(data.num == null && data.sym == null) {
                 return null; //throw exception
@@ -215,7 +218,7 @@ class Calculator {
         ArrayList<Data> ans = new ArrayList<>();
         while(in.hasNext()) {
             Data data = new Data();
-            data.num = in.nextDouble();
+            data.num = in.nextBigDecimal();
             if(data.num == null) {
                 Character ch = in.nextChar();
                 if(ch == '(') {
@@ -246,18 +249,21 @@ class Calculator {
         return ans;
     }
 
-    Double calculate(Character sym, Double a, Double b) {
+    BigDecimal calculate(Character sym, BigDecimal a, BigDecimal b) {
         if(a == null || b == null || sym == null) return null;
         switch(sym) {
-            case '+': return b+a;
-            case '-': return b-a;
-            case '*': return b*a;
-            case '/': return b/a;
+            case '+': return b.add(a);      // b+a
+            case '-': return b.subtract(a); // b-a
+            case '*': return b.multiply(a); // b*a
+            case '/': return b.divide(a);   // b/a
         }
         return null; //throw exception
     }
 
-    String mulsym(String str) {
+    String mulSym(String str) {
+        // add * symbol
+        // a(b+c)     --> a*(a+b)
+        // (a+b)(b+c) --> (a+b)*(b+c)
         StringBuilder ans = new StringBuilder();
         for (int i = 0; i < str.length(); i++) {
             ans.append(str.charAt(i));
@@ -278,14 +284,14 @@ class Calculator {
 }
 
 class Data {
-    public Double num;
+    public BigDecimal num;
     public Character sym;
 
     public Data() {
         this(null,null);
     }
 
-    public Data(Double num, Character sym) {
+    public Data(BigDecimal num, Character sym) {
         this.num = num;
         this.sym = sym;
     }
@@ -344,5 +350,42 @@ class Stream {
         }
         return ans;
     }
-}
 
+    public BigInteger nextBigInt() {
+        Character sign = null;
+        if(buff[index] == '-' || buff[index] == '+') {
+            sign = buff[index++];
+        }
+
+        BigInteger ans = null;
+        while(hasNext() &&  Calculator.isNumber(buff[index])) {
+            BigInteger curr = BigInteger.valueOf(buff[index++]-'0');
+            ans = (ans == null) ?  curr : (ans.multiply(BigInteger.TEN)).add(curr);
+        }
+
+        if(ans == null && sign != null) {
+            index--;
+        }
+        else if(sign != null && sign == '-') {
+            ans= ans.negate();
+        }
+        return ans;
+    }
+
+    public BigDecimal nextBigDecimal() {
+        BigInteger num = nextBigInt();
+        if(num == null) return null;
+        BigDecimal ans = new BigDecimal(num);
+        if(hasNext() && buff[index] == '.') {
+            index++;
+            BigDecimal tmp = BigDecimal.TEN;
+            while(hasNext() && Calculator.isNumber(buff[index])) {
+                BigDecimal curr = new BigDecimal(buff[index]-'0');
+                curr.divide(tmp);
+                ans = (ans == null) ?  curr : ans.add(curr);
+                tmp.multiply(BigDecimal.TEN);
+            }
+        }
+        return ans;
+    }
+}
