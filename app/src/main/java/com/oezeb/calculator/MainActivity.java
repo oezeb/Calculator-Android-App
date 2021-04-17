@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
@@ -25,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
 
         EditText in = findViewById(R.id.in);
         TextView out = findViewById(R.id.out);
+
+        in.setFocusable(false);
 
         //Disable default keyboard
         in.setOnTouchListener(new View.OnTouchListener() {
@@ -60,11 +63,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
         //get data from buttons
         findViewById(R.id.b0).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(in.getVisibility() == View.GONE) {
+                    showIn();
+                }
                 in.append("0");
             }
         });
@@ -72,6 +77,9 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.b1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(in.getVisibility() == View.GONE) {
+                    showIn();
+                }
                 in.append("1");
             }
         });
@@ -79,6 +87,9 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.b2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(in.getVisibility() == View.GONE) {
+                    showIn();
+                }
                 in.append("2");
             }
         });
@@ -86,6 +97,9 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.b3).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(in.getVisibility() == View.GONE) {
+                    showIn();
+                }
                 in.append("3");
             }
         });
@@ -93,6 +107,9 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.b4).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(in.getVisibility() == View.GONE) {
+                    showIn();
+                }
                 in.append("4");
             }
         });
@@ -100,6 +117,9 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.b5).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(in.getVisibility() == View.GONE) {
+                    showIn();
+                }
                 in.append("5");
             }
         });
@@ -107,6 +127,9 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.b6).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(in.getVisibility() == View.GONE) {
+                    showIn();
+                }
                 in.append("6");
             }
         });
@@ -114,6 +137,9 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.b7).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(in.getVisibility() == View.GONE) {
+                    showIn();
+                }
                 in.append("7");
             }
         });
@@ -121,6 +147,9 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.b8).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(in.getVisibility() == View.GONE) {
+                    showIn();
+                }
                 in.append("8");
             }
         });
@@ -128,6 +157,9 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.b9).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(in.getVisibility() == View.GONE) {
+                    showIn();
+                }
                 in.append("9");
             }
         });
@@ -135,6 +167,9 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.open_brace).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(in.getVisibility() == View.GONE) {
+                    showIn();
+                }
                 in.append("(");
             }
         });
@@ -142,6 +177,9 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.close_brace).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(in.getVisibility() == View.GONE) {
+                    showIn();
+                }
                 in.append(")");
             }
         });
@@ -149,6 +187,9 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.add).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(in.getVisibility() == View.GONE) {
+                    showIn();
+                }
                 in.append("+");
             }
         });
@@ -156,6 +197,9 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.sub).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(in.getVisibility() == View.GONE) {
+                    showIn();
+                }
                 in.append("-");
             }
         });
@@ -163,6 +207,9 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.mul).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(in.getVisibility() == View.GONE) {
+                    showIn();
+                }
                 in.append("x");
             }
         });
@@ -170,13 +217,19 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.div).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                in.append("/");
+                if(in.getVisibility() == View.GONE) {
+                    showIn();
+                }
+                in.append("÷");
             }
         });
 
         findViewById(R.id.clear).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(in.getVisibility() == View.GONE) {
+                    showIn();
+                }
                 in.setText("");
             }
         });
@@ -184,6 +237,9 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.del).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(in.getVisibility() == View.GONE) {
+                    showIn();
+                }
                 String str = in.getText().toString();
                 in.setText(str.substring(0,str.length()-1));
             }
@@ -192,12 +248,45 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.dot).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(in.getVisibility() == View.GONE) {
+                    showIn();
+                }
                 in.append(".");
             }
         });
+
+        findViewById(R.id.equal).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                hideIn();
+            }
+        });
+
+        findViewById(R.id.percentage).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(in.getVisibility() == View.GONE) {
+                    showIn();
+                }
+                in.append("%");
+            }
+        });
+    }
+
+    void hideIn() {
+        findViewById(R.id.in).setVisibility(View.GONE);
+        TextView out = findViewById(R.id.out);
+        out.setTextSize(TypedValue.COMPLEX_UNIT_SP,40);
+    }
+
+    void showIn() {
+        EditText in = findViewById(R.id.in);
+        in.setVisibility(View.VISIBLE);
+        in.setText("");
+        TextView out = findViewById(R.id.out);
+        out.setTextSize(TypedValue.COMPLEX_UNIT_SP,24);
     }
 }
-
 
 class Calculator {
     static BigDecimal eval(String str) throws Exception {
@@ -248,7 +337,7 @@ class Calculator {
                         throw ex;
                     }
                     // '*' and '/' priority
-                    if(!stk.empty() && (stk.peek() == '*' || stk.peek() == 'x' || stk.peek() == '/')) {
+                    if(!stk.empty() && (stk.peek() == '*' || stk.peek() == 'x' || stk.peek() == '/' || stk.peek() == '÷')) {
                         ans.add(new Data(null,stk.pop()));
                     }
                 }
@@ -270,7 +359,7 @@ class Calculator {
             else {  // data != null
                 ans.add(data);
                 // '*' and '/' priority
-                if(!stk.empty() && (stk.peek() == '*' || stk.peek() == 'x' || stk.peek() == '/')) {
+                if(!stk.empty() && (stk.peek() == '*' || stk.peek() == 'x' || stk.peek() == '/' || stk.peek() == '÷')) {
                     ans.add(new Data(null,stk.pop()));
                 }
                 // + and - symbol are consumed by nextBigDecimal
@@ -293,7 +382,8 @@ class Calculator {
             case '-': return b.subtract(a); // b-a
             case '*':
             case 'x': return b.multiply(a); // b*a
-            case '/': return b.divide(a);   // b/a
+            case '/':
+            case '÷': return b.divide(a);   // b/a
         }
         return null; //throw exception
     }
@@ -432,7 +522,14 @@ class Stream {
     public BigDecimal nextBigDecimal() {
         // get integer part
         BigInteger iVal = nextBigInt();
-        if(iVal == null) return null;
+        if(iVal == null) {
+            if(buff[index] == '.') {
+                iVal = BigInteger.valueOf(0);
+            }
+            else {
+                return null;
+            }
+        }
 
         // get decimal part
         BigDecimal ans = new BigDecimal(iVal);
