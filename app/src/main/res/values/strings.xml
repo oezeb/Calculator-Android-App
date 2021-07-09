@@ -1,25 +1,26 @@
 <resources>
     <string name="app_name">Calculator</string>
-    <string name="percent">%</string>
-    <string name="button">Button</string>
-    <string name="open_brace">(</string>
-    <string name="close_brace">)</string>
-    <string name="clear">CE</string>
-    <string name="delete">DEL</string>
+    <string name="C">C</string>
+    <string name="mc">mc</string>
+    <string name="m_plus">m+</string>
+    <string name="m_sub">m−</string>
+    <string name="mr">mr</string>
+    <string name="del">DEL</string>
     <string name="div">÷</string>
-    <string name="mul">x</string>
-    <string name="sub">-</string>
+    <string name="mul">×</string>
+    <string name="sub">−</string>
     <string name="add">+</string>
-    <string name="b6">6</string>
-    <string name="b9">9</string>
-    <string name="b8">8</string>
-    <string name="b5">5</string>
-    <string name="b7">7</string>
-    <string name="b4">4</string>
     <string name="equal">=</string>
     <string name="b0">0</string>
+    <string name="b1">1</string>
     <string name="b2">2</string>
     <string name="b3">3</string>
-    <string name="b1">1</string>
+    <string name="b4">4</string>
+    <string name="b5">5</string>
+    <string name="b6">6</string>
+    <string name="b7">7</string>
+    <string name="b8">8</string>
+    <string name="b9">9</string>
+    <string name="percent">%</string>
     <string name="dot">.</string>
 </resources>

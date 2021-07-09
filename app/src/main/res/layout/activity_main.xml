@@ -6,506 +6,622 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TableLayout
+    <TextView
+        android:id="@+id/mem"
         android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:stretchColumns="0,1,2,3"
+        android:layout_height="20dp"
+        android:textAlignment="viewEnd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/in"
+        style="@style/Widget.AppCompat.Light.AutoCompleteTextView"
+        android:layout_width="0dp"
+        android:layout_height="85dp"
+        android:autofillHints=""
+        android:background="#00FFFFFF"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:singleLine="true"
+        android:textAlignment="viewEnd"
+        android:textSize="60sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mem" />
+
+    <EditText
+        android:id="@+id/out"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:autofillHints=""
+        android:background="#00FFFFFF"
+        android:clickable="false"
+        android:cursorVisible="false"
+        android:editable="false"
+        android:ems="10"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:inputType="textPersonName"
+        android:singleLine="true"
+        android:textAlignment="viewEnd"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/in" />
+
+    <Space
+        android:id="@+id/space"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/out" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/space">
 
-        <TableRow
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/in"
-                style="@android:style/Widget.DeviceDefault.EditText"
-                android:layout_width="match_parent"
+            <View
+                android:id="@+id/divider11"
+                android:layout_width="1dp"
                 android:layout_height="match_parent"
-                android:layout_span="4"
-                android:layout_weight="1"
-                android:autofillHints=""
-                android:background="@android:color/transparent"
-                android:cursorVisible="true"
-                android:ems="10"
-                android:inputType="text"
-                android:textAlignment="textEnd"
-                android:textColor="@color/black"
-                android:textSize="40sp" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-
-            <TextView
-                android:id="@+id/out"
-                android:layout_width="match_parent"
-                android:layout_height="70sp"
-                android:layout_span="4"
-                android:layout_weight="1"
-                android:background="@android:color/transparent"
-                android:gravity="bottom"
-                android:maxLines="2"
-                android:padding="0dp"
-                android:paddingLeft="0dp"
-                android:paddingRight="0dp"
-                android:paddingBottom="0dp"
-                android:scrollbars="vertical"
-                android:scrollHorizontally="false"
-                android:textAlignment="viewEnd"
-                android:textSize="24sp" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-
-            <Button
-                android:id="@+id/open_brace"
-                style="@style/Widget.AppCompat.Button.Colored"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:insetBottom="0dp"
-                android:padding="0dp"
-                android:paddingLeft="0dp"
-                android:paddingTop="0dp"
-                android:paddingRight="0dp"
-                android:paddingBottom="0dp"
-                android:text="@string/open_brace"
-                android:textColor="@android:color/black"
-                android:textSize="36sp"
-                app:backgroundTint="@android:color/tertiary_text_light"
-                app:cornerRadius="0dp" />
-
-            <Button
-                android:id="@+id/close_brace"
-                style="@style/Widget.AppCompat.Button.Colored"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:insetBottom="0dp"
-                android:padding="0dp"
-                android:paddingLeft="0dp"
-                android:paddingTop="0dp"
-                android:paddingRight="0dp"
-                android:paddingBottom="0dp"
-                android:text="@string/close_brace"
-                android:textColor="@android:color/black"
-                android:textSize="36sp"
-                app:backgroundTint="@android:color/tertiary_text_light"
-                app:cornerRadius="0dp" />
-
-            <Button
-                android:id="@+id/clear"
-                style="@style/Widget.AppCompat.Button.Colored"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:insetBottom="0dp"
-                android:padding="0dp"
-                android:paddingLeft="0dp"
-                android:paddingTop="0dp"
-                android:paddingRight="0dp"
-                android:paddingBottom="0dp"
-                android:text="@string/clear"
-                android:textColor="@android:color/black"
-                android:textSize="36sp"
-                app:backgroundTint="@android:color/tertiary_text_light"
-                app:cornerRadius="0dp" />
-
-            <Button
-                android:id="@+id/del"
-                style="@style/Widget.AppCompat.Button.Colored"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:insetBottom="0dp"
-                android:padding="0dp"
-                android:paddingLeft="0dp"
-                android:paddingTop="0dp"
-                android:paddingRight="0dp"
-                android:paddingBottom="0dp"
-                android:text="@string/delete"
-                android:textColor="@android:color/black"
-                android:textSize="36sp"
-                app:backgroundTint="@android:color/tertiary_text_light"
-                app:cornerRadius="0dp" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-
-            <Button
-                android:id="@+id/percentage"
-                style="@style/Widget.AppCompat.Button.Colored"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:insetBottom="0dp"
-                android:padding="0dp"
-                android:paddingLeft="0dp"
-                android:paddingTop="0dp"
-                android:paddingRight="0dp"
-                android:paddingBottom="0dp"
-                android:text="@string/percent"
-                android:textColor="@android:color/black"
-                android:textSize="36sp"
-                app:backgroundTint="@android:color/tertiary_text_light"
-                app:cornerRadius="0dp" />
-
-            <Button
-                android:id="@+id/div"
-                style="@style/Widget.AppCompat.Button.Colored"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:insetBottom="0dp"
-                android:padding="0dp"
-                android:paddingLeft="0dp"
-                android:paddingTop="0dp"
-                android:paddingRight="0dp"
-                android:paddingBottom="0dp"
-                android:text="@string/div"
-                android:textColor="@android:color/black"
-                android:textSize="36sp"
-                app:backgroundTint="@android:color/tertiary_text_light"
-                app:cornerRadius="0dp" />
-
-            <Button
-                android:id="@+id/mul"
-                style="@style/Widget.AppCompat.Button.Colored"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:insetBottom="0dp"
-                android:padding="0dp"
-                android:paddingLeft="0dp"
-                android:paddingTop="0dp"
-                android:paddingRight="0dp"
-                android:paddingBottom="0dp"
-                android:text="@string/mul"
-                android:textColor="@android:color/black"
-                android:textSize="36sp"
-                app:backgroundTint="@android:color/tertiary_text_light"
-                app:cornerRadius="0dp" />
-
-            <Button
-                android:id="@+id/sub"
-                style="@style/Widget.AppCompat.Button.Colored"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:insetBottom="0dp"
-                android:padding="0dp"
-                android:paddingLeft="0dp"
-                android:paddingTop="0dp"
-                android:paddingRight="0dp"
-                android:paddingBottom="0dp"
-                android:text="@string/sub"
-                android:textColor="@android:color/black"
-                android:textSize="36sp"
-                app:backgroundTint="@android:color/tertiary_text_light"
-                app:cornerRadius="0dp" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="2">
+                android:background="@color/black" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:orientation="vertical">
 
-                <Button
+                <View
+                    android:id="@+id/divider9"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/black" />
+
+                <TextView
+                    android:id="@+id/mc"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@android:color/darker_gray"
+                    android:gravity="center"
+                    android:text="@string/mc"
+                    android:textSize="36sp" />
+
+                <View
+                    android:id="@+id/divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/black" />
+
+                <TextView
+                    android:id="@+id/C"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@android:color/darker_gray"
+                    android:gravity="center"
+                    android:text="@string/C"
+                    android:textColor="@color/purple_700"
+                    android:textSize="36sp" />
+
+                <View
+                    android:id="@+id/divider4"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/black" />
+
+                <TextView
                     android:id="@+id/b7"
-                    style="@style/Widget.AppCompat.Button.Colored"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:insetBottom="0dp"
-                    android:padding="0dp"
-                    android:paddingLeft="0dp"
-                    android:paddingTop="0dp"
-                    android:paddingRight="0dp"
-                    android:paddingBottom="0dp"
+                    android:background="@color/ic_launcher_background"
+                    android:gravity="center"
                     android:text="@string/b7"
-                    android:textColor="@android:color/black"
-                    android:textSize="36sp"
-                    app:backgroundTint="@android:color/darker_gray"
-                    app:cornerRadius="0dp" />
+                    android:textColor="@color/black"
+                    android:textSize="36sp" />
 
-                <Button
+                <View
+                    android:id="@+id/divider5"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/black" />
+
+                <TextView
                     android:id="@+id/b4"
-                    style="@style/Widget.AppCompat.Button.Colored"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:insetBottom="0dp"
-                    android:padding="0dp"
-                    android:paddingLeft="0dp"
-                    android:paddingTop="0dp"
-                    android:paddingRight="0dp"
-                    android:paddingBottom="0dp"
+                    android:background="@color/ic_launcher_background"
+                    android:gravity="center"
                     android:text="@string/b4"
-                    android:textColor="@android:color/black"
-                    android:textSize="36sp"
-                    app:backgroundTint="@android:color/darker_gray"
-                    app:cornerRadius="0dp" />
+                    android:textColor="@color/black"
+                    android:textSize="36sp" />
+
             </LinearLayout>
+
+            <View
+                android:id="@+id/divider12"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <Button
-                    android:id="@+id/b8"
-                    style="@style/Widget.AppCompat.Button.Colored"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:insetBottom="0dp"
-                    android:padding="0dp"
-                    android:paddingLeft="0dp"
-                    android:paddingTop="0dp"
-                    android:paddingRight="0dp"
-                    android:paddingBottom="0dp"
-                    android:text="@string/b8"
-                    android:textColor="@android:color/black"
-                    android:textSize="36sp"
-                    app:backgroundTint="@android:color/darker_gray"
-                    app:cornerRadius="0dp" />
-
-                <Button
-                    android:id="@+id/b5"
-                    style="@style/Widget.AppCompat.Button.Colored"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:insetBottom="0dp"
-                    android:padding="0dp"
-                    android:paddingLeft="0dp"
-                    android:paddingTop="0dp"
-                    android:paddingRight="0dp"
-                    android:paddingBottom="0dp"
-                    android:text="@string/b5"
-                    android:textColor="@android:color/black"
-                    android:textSize="36sp"
-                    app:backgroundTint="@android:color/darker_gray"
-                    app:cornerRadius="0dp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <Button
-                    android:id="@+id/b9"
-                    style="@style/Widget.AppCompat.Button.Colored"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:insetBottom="0dp"
-                    android:padding="0dp"
-                    android:paddingLeft="0dp"
-                    android:paddingTop="0dp"
-                    android:paddingRight="0dp"
-                    android:paddingBottom="0dp"
-                    android:text="@string/b9"
-                    android:textColor="@android:color/black"
-                    android:textSize="36sp"
-                    app:backgroundTint="@android:color/darker_gray"
-                    app:cornerRadius="0dp" />
-
-                <Button
-                    android:id="@+id/b6"
-                    style="@style/Widget.AppCompat.Button.Colored"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:insetBottom="0dp"
-                    android:padding="0dp"
-                    android:paddingLeft="0dp"
-                    android:paddingTop="0dp"
-                    android:paddingRight="0dp"
-                    android:paddingBottom="0dp"
-                    android:text="@string/b6"
-                    android:textColor="@android:color/black"
-                    android:textSize="36sp"
-                    app:backgroundTint="@android:color/darker_gray"
-                    app:cornerRadius="0dp" />
-            </LinearLayout>
-
-            <Button
-                android:id="@+id/add"
-                style="@style/Widget.AppCompat.Button.Colored"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:insetBottom="0dp"
-                android:padding="0dp"
-                android:paddingLeft="0dp"
-                android:paddingTop="0dp"
-                android:paddingRight="0dp"
-                android:paddingBottom="0dp"
-                android:text="@string/add"
-                android:textColor="@android:color/black"
-                android:textSize="36sp"
-                app:backgroundTint="@android:color/tertiary_text_light"
-                app:cornerRadius="0dp" />
+                android:orientation="vertical">
 
-        </TableRow>
+                <View
+                    android:id="@+id/divider10"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/black" />
 
-        <TableRow
+                <TextView
+                    android:id="@+id/m_plus"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@android:color/darker_gray"
+                    android:gravity="center"
+                    android:text="@string/m_plus"
+                    android:textSize="36sp" />
+
+                <View
+                    android:id="@+id/divider6"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/black" />
+
+                <TextView
+                    android:id="@+id/div"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@android:color/darker_gray"
+                    android:gravity="center"
+                    android:text="@string/div"
+                    android:textColor="@color/purple_700"
+                    android:textSize="36sp" />
+
+                <View
+                    android:id="@+id/divider7"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/black" />
+
+                <TextView
+                    android:id="@+id/b8"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/ic_launcher_background"
+                    android:gravity="center"
+                    android:text="@string/b8"
+                    android:textColor="@color/black"
+                    android:textSize="36sp" />
+
+                <View
+                    android:id="@+id/divider8"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/black" />
+
+                <TextView
+                    android:id="@+id/b5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/ic_launcher_background"
+                    android:gravity="center"
+                    android:text="@string/b5"
+                    android:textColor="@color/black"
+                    android:textSize="36sp" />
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/divider13"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <View
+                    android:id="@+id/divider14"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/black" />
+
+                <TextView
+                    android:id="@+id/m_sub"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@android:color/darker_gray"
+                    android:gravity="center"
+                    android:text="@string/m_sub"
+                    android:textSize="36sp" />
+
+                <View
+                    android:id="@+id/divider15"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/black" />
+
+                <TextView
+                    android:id="@+id/mul"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@android:color/darker_gray"
+                    android:gravity="center"
+                    android:text="@string/mul"
+                    android:textColor="@color/purple_700"
+                    android:textSize="36sp" />
+
+                <View
+                    android:id="@+id/divider16"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/black" />
+
+                <TextView
+                    android:id="@+id/b9"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/ic_launcher_background"
+                    android:gravity="center"
+                    android:text="@string/b9"
+                    android:textColor="@color/black"
+                    android:textSize="36sp" />
+
+                <View
+                    android:id="@+id/divider17"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/black" />
+
+                <TextView
+                    android:id="@+id/b6"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/ic_launcher_background"
+                    android:gravity="center"
+                    android:text="@string/b6"
+                    android:textColor="@color/black"
+                    android:textSize="36sp" />
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/divider22"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <View
+                    android:id="@+id/divider18"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/black" />
+
+                <TextView
+                    android:id="@+id/mr"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@android:color/darker_gray"
+                    android:gravity="center"
+                    android:text="@string/mr"
+                    android:textSize="36sp" />
+
+                <View
+                    android:id="@+id/divider19"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/black" />
+
+                <TextView
+                    android:id="@+id/del"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@android:color/darker_gray"
+                    android:gravity="center"
+                    android:text="@string/del"
+                    android:textColor="@color/purple_700"
+                    android:textSize="36sp" />
+
+                <View
+                    android:id="@+id/divider20"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/black" />
+
+                <TextView
+                    android:id="@+id/sub"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@android:color/darker_gray"
+                    android:gravity="center"
+                    android:text="@string/sub"
+                    android:textColor="@color/purple_700"
+                    android:textSize="36sp" />
+
+                <View
+                    android:id="@+id/divider21"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/black" />
+
+                <TextView
+                    android:id="@+id/add"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@android:color/darker_gray"
+                    android:gravity="center"
+                    android:text="@string/add"
+                    android:textColor="@color/purple_700"
+                    android:textSize="36sp" />
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/divider23"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="2">
+            android:layout_weight="2"
+            android:orientation="horizontal">
+
+            <View
+                android:id="@+id/divider26"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_span="2"
+                android:layout_weight="1"
                 android:orientation="vertical">
 
-                <LinearLayout
+                <View
+                    android:id="@+id/divider34"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/black" />
+
+                <TextView
+                    android:id="@+id/b1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:orientation="horizontal">
+                    android:background="@color/ic_launcher_background"
+                    android:gravity="center"
+                    android:text="@string/b1"
+                    android:textColor="@color/black"
+                    android:textSize="36sp" />
 
-                    <Button
-                        android:id="@+id/b1"
-                        style="@style/Widget.AppCompat.Button.Colored"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:insetBottom="0dp"
-                        android:padding="0dp"
-                        android:paddingLeft="0dp"
-                        android:paddingTop="0dp"
-                        android:paddingRight="0dp"
-                        android:paddingBottom="0dp"
-                        android:text="@string/b1"
-                        android:textColor="@android:color/black"
-                        android:textSize="36sp"
-                        app:backgroundTint="@android:color/darker_gray"
-                        app:cornerRadius="0dp" />
+                <View
+                    android:id="@+id/divider35"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/black" />
 
-                    <Button
-                        android:id="@+id/b2"
-                        style="@style/Widget.AppCompat.Button.Colored"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:insetBottom="0dp"
-                        android:padding="0dp"
-                        android:paddingLeft="0dp"
-                        android:paddingTop="0dp"
-                        android:paddingRight="0dp"
-                        android:paddingBottom="0dp"
-                        android:text="@string/b2"
-                        android:textColor="@android:color/black"
-                        android:textSize="36sp"
-                        app:backgroundTint="@android:color/darker_gray"
-                        app:cornerRadius="0dp" />
+                <TextView
+                    android:id="@+id/percent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/ic_launcher_background"
+                    android:gravity="center"
+                    android:text="@string/percent"
+                    android:textColor="@color/black"
+                    android:textSize="36sp" />
 
-                </LinearLayout>
+                <View
+                    android:id="@+id/divider36"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/black" />
 
-                <Button
+            </LinearLayout>
+
+            <View
+                android:id="@+id/divider27"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <View
+                    android:id="@+id/divider38"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/black" />
+
+                <TextView
+                    android:id="@+id/b2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/ic_launcher_background"
+                    android:gravity="center"
+                    android:text="@string/b2"
+                    android:textColor="@color/black"
+                    android:textSize="36sp" />
+
+                <View
+                    android:id="@+id/divider39"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/black" />
+
+                <TextView
                     android:id="@+id/b0"
-                    style="@style/Widget.AppCompat.Button.Colored"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:insetBottom="0dp"
-                    android:padding="0dp"
-                    android:paddingLeft="0dp"
-                    android:paddingTop="0dp"
-                    android:paddingRight="0dp"
-                    android:paddingBottom="0dp"
+                    android:background="@color/ic_launcher_background"
+                    android:gravity="center"
                     android:text="@string/b0"
-                    android:textColor="@android:color/black"
-                    android:textSize="36sp"
-                    app:backgroundTint="@android:color/darker_gray"
-                    app:cornerRadius="0dp" />
+                    android:textColor="@color/black"
+                    android:textSize="36sp" />
+
+                <View
+                    android:id="@+id/divider40"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/black" />
 
             </LinearLayout>
+
+            <View
+                android:id="@+id/divider28"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:orientation="vertical">
 
-                <Button
-                    android:id="@+id/b3"
-                    style="@style/Widget.AppCompat.Button.Colored"
+                <View
+                    android:id="@+id/divider41"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:insetBottom="0dp"
-                    android:padding="0dp"
-                    android:paddingLeft="0dp"
-                    android:paddingTop="0dp"
-                    android:paddingRight="0dp"
-                    android:paddingBottom="0dp"
-                    android:text="@string/b3"
-                    android:textColor="@android:color/black"
-                    android:textSize="36sp"
-                    app:backgroundTint="@android:color/darker_gray"
-                    app:cornerRadius="0dp" />
+                    android:layout_height="1dp"
+                    android:background="@color/black" />
 
-                <Button
-                    android:id="@+id/dot"
-                    style="@style/Widget.AppCompat.Button.Colored"
+                <TextView
+                    android:id="@+id/b3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:insetBottom="0dp"
-                    android:padding="0dp"
-                    android:paddingLeft="0dp"
-                    android:paddingTop="0dp"
-                    android:paddingRight="0dp"
-                    android:paddingBottom="0dp"
+                    android:background="@color/ic_launcher_background"
+                    android:gravity="center"
+                    android:text="@string/b3"
+                    android:textColor="@color/black"
+                    android:textSize="36sp" />
+
+                <View
+                    android:id="@+id/divider42"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/black" />
+
+                <TextView
+                    android:id="@+id/dot"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/ic_launcher_background"
+                    android:gravity="center"
                     android:text="@string/dot"
-                    android:textColor="@android:color/black"
-                    android:textSize="36sp"
-                    app:backgroundTint="@android:color/darker_gray"
-                    app:cornerRadius="0dp" />
+                    android:textColor="@color/black"
+                    android:textSize="36sp" />
+
+                <View
+                    android:id="@+id/divider43"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/black" />
+
             </LinearLayout>
 
-            <Button
-                android:id="@+id/equal"
-                style="@style/Widget.AppCompat.Button.Colored"
+            <View
+                android:id="@+id/divider24"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:insetBottom="0dp"
-                android:padding="0dp"
-                android:paddingLeft="0dp"
-                android:paddingTop="0dp"
-                android:paddingRight="0dp"
-                android:paddingBottom="0dp"
-                android:text="@string/equal"
-                android:textColor="@color/white"
-                android:textSize="36sp"
-                app:backgroundTint="@android:color/holo_blue_dark"
-                app:cornerRadius="0dp" />
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-        </TableRow>
+                <View
+                    android:id="@+id/divider45"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/black" />
 
-    </TableLayout>
+                <TextView
+                    android:id="@+id/equal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/purple_500"
+                    android:gravity="center"
+                    android:text="@string/equal"
+                    android:textColor="@color/ic_launcher_background"
+                    android:textSize="36sp" />
+
+                <View
+                    android:id="@+id/divider44"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/black" />
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/divider29"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
